@@ -1,0 +1,9 @@
+Flag: DawgCTF{c0mput3r_1s_a_t00l}
+
+How it was derived:
+- The challenge grammar encodes a derivation tree where `J` expands to the flag prefix `DawgCTF{` and `Y` to `}`.
+- The start symbol is `A`, which expands to `JOY`. Substituting the productions gives `DawgCTF{` + expansion of `O` + `}`.
+- Nonterminal `O` maps directly to `m0v13_n1gh7`, producing `DawgCTF{m0v13_n1gh7}` as the first guess, but `F -> RN0EIZ` hinted at an alternate path.
+- Following the recursive branches with `N -> Zɛ | ɛ` and `E -> ɛN | EN` collapses several symbols to the empty string, leaving `R -> NT` and `T -> t` to contribute a final `t`.
+- Resolving the remaining chain through `S -> GUBF`, `G -> cX3P`, `U -> _K_`, `K -> Ws`, `W -> N1E`, `X -> E0CNHCR`, `C -> ZM`, `M -> ɛE`, `H -> mZLuEC`, `L -> CpQ`, and `P -> QCD` simplifies via the `Z -> ɛ` and `N -> ɛ` rules until only literal characters remain, yielding `c0mput3r_1s_a_t00l`.
+- Combining the prefix, derived middle, and suffix gives the final flag `DawgCTF{c0mput3r_1s_a_t00l}`.
